@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import Header from "./components/Header";
-import Main from "./components/Main";
-
-const StyledApp = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import Main from "./components/Main/Main";
 
 export default function App() {
   return (
@@ -16,3 +10,9 @@ export default function App() {
     </StyledApp>
   );
 }
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

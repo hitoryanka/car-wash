@@ -29,7 +29,6 @@ export default function WasherMap({ setMap }) {
 
   return (
     <StyledMapContainer>
-      <div>sdfsdfsdf</div>
       <StyledMap id="map"></StyledMap>
     </StyledMapContainer>
   );

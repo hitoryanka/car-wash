@@ -65,6 +65,6 @@ const StyledAuthButton = styled.button`
 
   :last-of-type {
     background-color: #25af74;
-    color: #fff;
+    color: white;
   }
 `;

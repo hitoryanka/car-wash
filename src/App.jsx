@@ -5,6 +5,7 @@ import Main from "./components/Main/Main";
 export default function App() {
   return (
     <StyledApp>
+      <div></div>
       <Header />
       <Main />
     </StyledApp>
@@ -12,6 +13,7 @@ export default function App() {
 }
 
 const StyledApp = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;

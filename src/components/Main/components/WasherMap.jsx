@@ -42,4 +42,9 @@ const StyledMapContainer = styled.section`
 const StyledMap = styled.div`
   height: 100%;
   width: 100%;
+
+  ymaps {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
 `;

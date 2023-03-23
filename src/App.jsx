@@ -13,7 +13,6 @@ export default function App() {
 }
 
 const StyledApp = styled.div`
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -11,7 +11,7 @@ export default function List({}) {
   }
 
   return (
-    <StyledList onClick={(e) => handleBlurFilters(e)}>
+    <StyledList onClick={handleFilters}>
       <StyledRoundButtons>
         <StyledButton>
           <img src="src\imgs\main\clock.svg" alt="fastest" />

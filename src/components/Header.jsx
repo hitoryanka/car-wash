@@ -42,7 +42,7 @@ const StyledNavBit = styled.div`
   margin: 0 50px;
   display: flex;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
 `;
 
 const StyledButton = styled.button`

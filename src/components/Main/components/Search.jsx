@@ -1,27 +1,26 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Search({ onFocus }) {
+export default function Search({ search }) {
   const [searchText, setSearchText] = useState("");
 
   function handleChange(text) {
     setSearchText(text);
   }
 
-  function handleSearh() {
-    searchControl && searchControl.search("автомойка " + searchText);
+  function handleSearch() {
+    search.search(searchText);
   }
 
   return (
     <StyledSearch>
       <StyledInput
-        onFocus={onFocus}
         type="text"
         id="suggest"
         value={searchText}
         onChange={({ target }) => handleChange(target.value)}
       />
-      <button onClick={handleSearh}>
+      <button onClick={handleSearch}>
         <img src="src\imgs\main\search.svg" alt="search" />
       </button>
     </StyledSearch>

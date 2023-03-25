@@ -5,6 +5,7 @@ export default function Header({}) {
     <StyledHeader>
       <StyledNav>
         <StyledNavBit>
+          <div></div>
           <StyledMqueen src="src\imgs\mqueen.svg" alt="Mqueen" />
           <StyledButton>Главная</StyledButton>
           <StyledButton>Поиск автомоек</StyledButton>
@@ -39,7 +40,7 @@ const StyledMqueen = styled.img`
 `;
 
 const StyledNavBit = styled.div`
-  margin: 0 50px;
+  margin: 50px;
   display: flex;
   align-items: center;
   gap: 30px;

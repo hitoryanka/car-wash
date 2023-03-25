@@ -1,17 +1,25 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function WasherMap({ setMap }) {
+export default function WasherMap({ setMap, setSearch }) {
   const [isCreated, setIsCreated] = useState(false);
 
   if (!isCreated) {
     function init() {
       const newMap = new ymaps.Map("map", {
-        controls: ["searchControl"],
+        controls: [],
         center: [47.214856289483166, 38.90894337271118],
-        zoom: 13,
-      })();
+        zoom: 15,
+      });
 
+      const searchControl = new ymaps.control.SearchControl({
+        options: {
+          provider: "yandex#search",
+        },
+      });
+      newMap.controls.add(searchControl);
+      searchControl.search("автомойки");
+      setSearch(searchControl);
       setMap(newMap);
 
       // map.controls.remove("geolocationControl"); // удаляем геолокацию
@@ -43,8 +51,7 @@ const StyledMap = styled.div`
   height: 100%;
   width: 100%;
 
-  ymaps {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+  .ymaps-2-1-79-controls__control_toolbar {
+    display: none;
   }
 `;

@@ -5,10 +5,12 @@ import List from "./components/List";
 
 export default function Main() {
   const [map, setMap] = useState(null);
+  const [search, setSearch] = useState(null);
+
   return (
     <StyledMain>
-      <List />
-      <WasherMap setMap={setMap} />
+      <List map={map} search={search} />
+      <WasherMap setMap={setMap} setSearch={setSearch} />
     </StyledMain>
   );
 }

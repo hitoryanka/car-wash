@@ -3,15 +3,15 @@ import styled from "styled-components";
 import Filters from "./Filters";
 import Search from "./Search";
 
-export default function List({}) {
-  const [isSearchActive, setIsSearchActive] = useState(true);
+export default function List({ map, search }) {
+  const [isFiltersActive, setIsFiltersActive] = useState(true);
 
   function handleFilters() {
-    setIsSearchActive(!isSearchActive);
+    setIsFiltersActive(!isFiltersActive);
   }
 
   return (
-    <StyledList onClick={handleFilters}>
+    <StyledList>
       <StyledRoundButtons>
         <StyledButton>
           <img src="src\imgs\main\clock.svg" alt="fastest" />
@@ -27,13 +27,13 @@ export default function List({}) {
         </StyledButton>
       </StyledRoundButtons>
       <StyledSearchContainer>
-        <Search />
+        <Search search={search} />
         <img
           src="src\imgs\main\filter.svg"
           alt="filters"
           onClick={handleFilters}
         />
-        {isSearchActive && <Filters id="filters" />}
+        {isFiltersActive && <Filters id="filters" />}
       </StyledSearchContainer>
     </StyledList>
   );
@@ -54,6 +54,7 @@ const StyledRoundButtons = styled.div`
   margin-top: 30px;
 
   img {
+    cursor: pointer;
     width: 4rem;
   }
 `;
@@ -77,4 +78,8 @@ const StyledSearchContainer = styled.div`
   position: relative;
   display: flex;
   gap: 10px;
+
+  img {
+    cursor: pointer;
+  }
 `;

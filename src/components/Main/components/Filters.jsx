@@ -6,12 +6,18 @@ export default function Filters() {
   return (
     <StyledFilters>
       <StyledFiltersContainer>
-        <SpecificFilter title={"Тип авто"} fields={["легковое", "грузовое"]} />
         <SpecificFilter
+          key={0}
+          title={"Тип авто"}
+          fields={["легковое", "грузовое"]}
+        />
+        <SpecificFilter
+          key={1}
           title={"Тип автомойки"}
           fields={["классическая", "самообслуживание"]}
         />
         <SpecificFilter
+          key={2}
           title={"Вид мойки"}
           fields={["ручная", "портальная", "туннельная", "бесконтактная"]}
         />

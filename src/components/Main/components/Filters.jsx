@@ -22,14 +22,25 @@ export default function Filters() {
           fields={["ручная", "портальная", "туннельная", "бесконтактная"]}
         />
         <input type="submit" value="ПОДТВЕРДИТЬ" />
+        <hr />
       </StyledFiltersContainer>
     </StyledFilters>
   );
 }
 
 const StyledFiltersContainer = styled.div`
+  background-color: #fff;
+  margin-top: 15px;
+  margin-left: -10px;
+  width: 400px;
   display: flex;
   flex-direction: column;
+
+  hr {
+    /* overflow-x: hidden; */
+    width: 100%;
+    /* margin-left: -5px; */
+  }
 `;
 
 const StyledFilters = styled.section`
@@ -38,8 +49,7 @@ const StyledFilters = styled.section`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #dde5e6;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 
   img {
     cursor: pointer;

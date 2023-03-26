@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function WasherMap({ setMap, setSearch }) {
+export default function WasherMap({ setMap, setSearch, setSearchResults }) {
   const [isCreated, setIsCreated] = useState(false);
 
   if (!isCreated) {
@@ -18,18 +18,13 @@ export default function WasherMap({ setMap, setSearch }) {
         },
       });
       newMap.controls.add(searchControl);
-      searchControl.search("автомойки");
+      searchControl.search("автомойки", { type: "biz" });
+      searchControl.events.add("load", () => {
+        console.log(searchControl.getResultsArray());
+        setSearchResults(searchControl.getResultsArray());
+      });
       setSearch(searchControl);
       setMap(newMap);
-
-      // map.controls.remove("geolocationControl"); // удаляем геолокацию
-      // map.controls.remove("searchControl"); // удаляем поиск
-      // map.controls.remove("trafficControl"); // удаляем контроль трафика
-      // map.controls.remove("typeSelector"); // удаляем тип
-      // map.controls.remove("fullscreenControl"); // удаляем кнопку перехода в полноэкранный режим
-      // map.controls.remove("zoomControl"); // удаляем контрол зуммирования
-      // map.controls.remove("rulerControl"); // удаляем контрол правил
-      // map.behaviors.disable(["scrollZoom"]); // отключаем скролл карты (опционально)
     }
     ymaps.ready(init);
     setIsCreated(!isCreated);

@@ -2,8 +2,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import Filters from "./Filters";
 import Search from "./Search";
+import ListItem from "./ListItem";
 
-export default function List({ map, search }) {
+export default function List({ map, search, items, setSearchResults }) {
   const [isFiltersActive, setIsFiltersActive] = useState(true);
 
   function handleFilters() {
@@ -35,6 +36,21 @@ export default function List({ map, search }) {
         />
         {isFiltersActive && <Filters id="filters" />}
       </StyledSearchContainer>
+      <StyledItemsList>
+        {items.map(({ properties }) => {
+          return (
+            <ListItem
+              key={properties.get("id")}
+              name={properties.get("name")}
+              description={properties.get("description")}
+              hours={properties.get("Hours")}
+              phones={properties.get("phoneNumbers")}
+              rating={properties.get("rating").score}
+              workingStatus={properties.get("workingTime")}
+            />
+          );
+        })}
+      </StyledItemsList>
     </StyledList>
   );
 }
@@ -42,7 +58,6 @@ export default function List({ map, search }) {
 const StyledList = styled.div`
   position: relative;
   max-width: 40%;
-  width: fit-content;
   height: 100%;
   border-right: 1px solid #dde5e6;
 `;
@@ -82,4 +97,9 @@ const StyledSearchContainer = styled.div`
   img {
     cursor: pointer;
   }
+`;
+
+const StyledItemsList = styled.div`
+  height: 600px;
+  overflow-y: scroll;
 `;

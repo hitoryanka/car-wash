@@ -6,11 +6,21 @@ import List from "./components/List";
 export default function Main() {
   const [map, setMap] = useState(null);
   const [search, setSearch] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   return (
     <StyledMain>
-      <List map={map} search={search} />
-      <WasherMap setMap={setMap} setSearch={setSearch} />
+      <List
+        map={map}
+        search={search}
+        items={searchResults}
+        setSearch={setSearch}
+      />
+      <WasherMap
+        setMap={setMap}
+        setSearchResults={setSearchResults}
+        setSearch={setSearch}
+      />
     </StyledMain>
   );
 }

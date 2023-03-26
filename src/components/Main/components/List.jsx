@@ -43,8 +43,7 @@ export default function List({ map, search, items, setSearchResults }) {
               key={properties.get("id")}
               name={properties.get("name")}
               description={properties.get("description")}
-              hours={properties.get("Hours")}
-              phones={properties.get("phoneNumbers")}
+              metaData={properties.get("companyMetaData")}
               rating={properties.get("rating").score}
               workingStatus={properties.get("workingTime")}
             />

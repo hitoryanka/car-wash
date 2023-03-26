@@ -20,7 +20,6 @@ export default function WasherMap({ setMap, setSearch, setSearchResults }) {
       newMap.controls.add(searchControl);
       searchControl.search("автомойки", { type: "biz" });
       searchControl.events.add("load", () => {
-        console.log(searchControl.getResultsArray());
         setSearchResults(searchControl.getResultsArray());
       });
       setSearch(searchControl);

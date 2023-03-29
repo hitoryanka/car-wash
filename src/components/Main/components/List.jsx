@@ -44,7 +44,7 @@ export default function List({ map, search, items, setSearchResults }) {
               name={properties.get("name")}
               description={properties.get("description")}
               metaData={properties.get("companyMetaData")}
-              rating={properties.get("rating").score}
+              rating={properties.get("rating")?.score}
               workingStatus={properties.get("workingTime")}
             />
           );
@@ -88,9 +88,10 @@ const StyledButton = styled.button`
 `;
 
 const StyledSearchContainer = styled.div`
-  padding: 15px;
   position: relative;
   display: flex;
+  padding: 15px;
+  /* width: 100%; */
   gap: 10px;
 
   img {
@@ -99,6 +100,35 @@ const StyledSearchContainer = styled.div`
 `;
 
 const StyledItemsList = styled.div`
-  height: 600px;
+  height: 550px;
+  width: 100%;
   overflow-y: scroll;
+  scrollbar-width: none;
+  --scroll-bar-width: 8px;
+
+  ::-webkit-scrollbar {
+    width: var(--scroll-bar-width);
+    display: none;
+  }
+
+  --mask-height: 32px;
+  padding-bottom: var(--mask-height);
+
+  --mask-image-content: linear-gradient(
+    to bottom,
+    transparent,
+    black var(--mask-height),
+    black calc(100% - var(--mask-height)),
+    transparent
+  );
+
+  --mask-size-content: calc(100% - var(--scroll-bar-width)) 100%;
+  --mask-image-scrollbar: linear-gradient(black, black);
+  --mask-size-scrollbar: var(--scroll-bar-width) 100%;
+
+  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+
+  mask-position: 0 0, 100% 0;
+  mask-repeat: no-repeat, no-repeat;
 `;

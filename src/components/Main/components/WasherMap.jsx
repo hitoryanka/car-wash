@@ -39,6 +39,9 @@ export default function WasherMap({ setMap, setSearch, setSearchResults }) {
 const StyledMapContainer = styled.section`
   height: 100%;
   width: 100%;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
 `;
 
 const StyledMap = styled.div`

@@ -22,7 +22,6 @@ export default function Filters() {
           fields={["ручная", "портальная", "туннельная", "бесконтактная"]}
         />
         <input type="submit" value="ПОДТВЕРДИТЬ" />
-        <hr />
       </StyledFiltersContainer>
     </StyledFilters>
   );
@@ -31,10 +30,11 @@ export default function Filters() {
 const StyledFiltersContainer = styled.div`
   background-color: #fff;
   margin-top: 15px;
-  margin-left: -10px;
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgb(231, 237, 237);
 
   hr {
     /* overflow-x: hidden; */
@@ -46,10 +46,11 @@ const StyledFiltersContainer = styled.div`
 const StyledFilters = styled.section`
   position: absolute;
   z-index: 1;
+  width: 100%;
   margin-top: 30px;
+  margin-left: -15px;
   display: flex;
   flex-direction: column;
-  /* padding-bottom: 10px; */
 
   img {
     cursor: pointer;
